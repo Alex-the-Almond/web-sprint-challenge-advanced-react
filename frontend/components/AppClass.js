@@ -12,6 +12,7 @@ const initialState = {
   index: initialIndex,
   steps: initialSteps,
 }
+test test
 
 export default class AppClass extends React.Component {
   // THE FOLLOWING HELPERS ARE JUST RECOMMENDATIONS.
