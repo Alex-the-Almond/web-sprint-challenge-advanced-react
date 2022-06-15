@@ -5,7 +5,7 @@ export default class AppClass extends React.Component {
  state = {
   x: 2,
   y: 2,
-  moves: 0,
+  steps: 0,
   email: '',
   message: '',
  };
@@ -14,7 +14,7 @@ export default class AppClass extends React.Component {
   this.setState({
     x: 2,
     y: 2,
-    moves: 0,
+    steps: 0,
     email: '',
     message: '',
   });
@@ -43,7 +43,7 @@ export default class AppClass extends React.Component {
       ...this.state,
       x: this.state.x + xCord,
       y: this.state.y + yCord,
-      moves: this.state.moves + 1,
+      steps: this.state.steps + 1,
       message: ''
     })
   }
@@ -56,10 +56,10 @@ handleChange = (evt) => {
 handleSubmit = (evt) => {
   evt.preventDefault();
 
-  fetch('http://localhost:9000/api/result', {
+    fetch('http://localhost:9000/api/result', {
     method: 'POST',
     headers: {
-      Accept: 'application/json',
+    Accept: 'application/json',
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(this.state)
@@ -78,7 +78,7 @@ handleSubmit = (evt) => {
       <div id="wrapper" className={className}>
         <div className="info">
           <h3 id="coordinates">{`Coordinates (${this.state.x}, ${this.state.y})`}</h3>
-            {this.state.moves === 1 ? <h3 id="steps">You moved 1 times</h3> : <h3 id='steps'>You Moved {this.state.moves} times</h3>}
+            {this.state.steps === 1 ? <h3 id="steps">You moved 1 time</h3> : <h3 id='steps'>You moved {this.state.steps} times</h3>}
         </div>
         <div id="grid">
             <div className={`square ${this.state.x === 1 && this.state.y === 1 ? 'active' : ''}`}>{this.state.x === 1 && this.state.y === 1 ? 'B' : ''}</div>
